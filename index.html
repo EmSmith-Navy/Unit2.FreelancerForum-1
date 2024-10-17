@@ -3,94 +3,27 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Freelancer Listings</title>
+    <title>Freelancer List</title>
     <style>
       body {
         font-family: Arial, sans-serif;
         margin: 20px;
-        background-color: #f4f4f4;
       }
-      h1 {
-        color: #333;
-      }
-      .freelancer-list {
-        margin-top: 20px;
+      #freelancer-list {
+        margin-bottom: 20px;
       }
       .freelancer {
-        padding: 10px;
-        background: #fff;
         margin: 5px 0;
-        border: 1px solid #ddd;
       }
-      .average-price {
-        margin-top: 20px;
+      #average-price {
         font-weight: bold;
       }
     </style>
   </head>
   <body>
     <h1>Available Freelancers</h1>
-
-    <div id="freelancers">
-      <div class="freelancer">
-        <p><strong>Name:</strong> Alice</p>
-        <p><strong>Occupation:</strong> Writer</p>
-        <p><strong>Starting Price:</strong> $30</p>
-      </div>
-      <div class="freelancer">
-        <p><strong>Name:</strong> Bob</p>
-        <p><strong>Occupation:</strong> Teacher</p>
-        <p><strong>Starting Price:</strong> $50</p>
-      </div>
-    </div>
-
-    <p class="average-price">Average Starting Price: $40</p>
-
-    <script>
-      const freelancers = [
-        { name: "Alice", occupation: "Writer", price: 30 },
-        { name: "Bob", occupation: "Teacher", price: 50 },
-        { name: "Carol", occupation: "Programmer", price: 70 },
-        { name: "David", occupation: "Designer", price: 40 },
-        { name: "Eva", occupation: "Photographer", price: 60 },
-        { name: "Frank", occupation: "Developer", price: 80 },
-        { name: "Grace", occupation: "Consultant", price: 90 },
-        { name: "Hank", occupation: "Marketer", price: 20 },
-      ];
-
-      let currentFreelancers = freelancers.slice(0, 2);
-      let totalPrice = currentFreelancers.reduce((sum, f) => sum + f.price, 0);
-
-      function updateAveragePrice() {
-        const averagePrice = (totalPrice / currentFreelancers.length).toFixed(
-          2
-        );
-        document.querySelector(
-          ".average-price"
-        ).innerText = `Average Starting Price: $${averagePrice}`;
-      }
-
-      function addFreelancer() {
-        if (currentFreelancers.length < freelancers.length) {
-          const newFreelancer = freelancers[currentFreelancers.length];
-          currentFreelancers.push(newFreelancer);
-          totalPrice += newFreelancer.price;
-
-          const freelancerDiv = document.createElement("div");
-          freelancerDiv.className = "freelancer";
-          freelancerDiv.innerHTML = `
-                    <p><strong>Name:</strong> ${newFreelancer.name}</p>
-                    <p><strong>Occupation:</strong> ${newFreelancer.occupation}</p>
-                    <p><strong>Starting Price:</strong> $${newFreelancer.price}</p>
-                `;
-          document.getElementById("freelancers").appendChild(freelancerDiv);
-
-          updateAveragePrice();
-        }
-      }
-
-      setInterval(addFreelancer, 3000);
-    </script>
+    <div id="freelancer-list"></div>
+    <div id="average-price">Average Starting Price: $0</div>
   </body>
   <script src="index.js"></script>
 </html>
